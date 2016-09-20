@@ -33,146 +33,11 @@ var paths = {
   css:'client/css/plugins/*.css',
   js:['client/**/*.js','!./client/bower_components/**/*.js']
 };
-  //复制bowerj.json文件
-  // gulp.task('copyBowerJson', function() {
-  //   var start = 'bower.json'
-  //   gulp.src(start)
-  //     .pipe(gulp.dest('dist'))
-  // });
-  // // 复制index.html文件，替换js css
-  // gulp.task('copyIndexHtml', function() {
-  //   var start = 'client/index.html'
-  //   gulp.src(start)
-  //    .pipe(htmlreplace({
-  //       'css': 'css/main.css',
-  //       'js': 'js/all.js'
-  //      }))
-  //     .pipe(gulp.dest('dist'))
-  // });
-  // //复制所有bower_components
-  // gulp.task('copy', function() {
-  // var start = 'client/bower_components/**'
-  //   gulp.src(start)
-  //     .pipe(gulp.dest('dist/bower_components/'))
-  // });
-  //postcss,合并,压缩 css
-//   gulp.task('postcss', function () {
-//     return gulp.src('client/css/plugins/*.css')
-//         .pipe( sourcemaps.init() )
-//         .pipe( postcss([ autoprefixer, precss ]) )
-//         .pipe( sourcemaps.write('.')) 
-//         .pipe(concat('main.css'))
-//         .pipe(gulp.dest(paths.dist))
-//         .pipe(rename({ suffix: '.min' }))
-//         .pipe(minifycss())
-//         .pipe(gulp.dest(paths.dist))
-//         .pipe(notify({ message: 'css task ok' }));;
-// });
-
-  // 删除dist
   gulp.task('clean', function() {
 
     return del([paths.dist,'.tmp']);
   });
-  // 压缩html
-  // gulp.task('html', function() {
-  //   return gulp.src(paths.html)
-  //     .pipe(htmlmin({collapseWhitespace: true}))
-  //     .pipe(gulp.dest(paths.dist))
-  //     .pipe(notify({ message: 'html task ok' }));
-
-   
-  // });
  
-  // 压缩图片
-
-  // gulp.task('img', function() {
-  //   return gulp.src(paths.images,{base:'client'})
-  //     .pipe(imagemin({
-  //         progressive: true,
-  //         svgoPlugins: [{removeViewBox: false}],
-  //         use: [pngcrush()]
-  //     }))
-  //     .pipe(gulp.dest(paths.dist))
-  //     .pipe(notify({ message: 'img task ok' }));
-  // });
-
- 
-  // 合并、压缩、重命名css
-  // gulp.task('css', function() {
-  //   return gulp.src(paths.css)
-  //     .pipe(concat('main.css'))
-  //     .pipe(gulp.dest(paths.dist+'/css'))
-  //     .pipe(rename({ suffix: '.min' }))
-  //     .pipe(minifycss())
-  //     .pipe(gulp.dest(paths.dist+'/css'))
-  //     .pipe(notify({ message: 'css task ok' }));
-  // });
- 
-  // // 检查js
-  // gulp.task('lint', function() {
-  //   return gulp.src(paths.js)
-  //     .pipe(jshint())
-  //     .pipe(jshint.reporter('default'))
-  //     .pipe(notify({ message: 'lint task ok' }));
-  // });
-   
-
-  // // 合并、压缩js文件
-  // gulp.task('js', function() {
-  //   return gulp.src(paths.js)
-  //     .pipe(concat('all.js'))
-  //     .pipe(gulp.dest(paths.dist+'/js'))
-  //     .pipe(rename({ suffix: '.min' }))
-  //     .pipe(uglify())
-  //     .pipe(gulp.dest(paths.dist+'/js'))
-  //     .pipe(notify({ message: 'js task ok' }));
-  // });
-
- 
-  // 默认任务
-  // gulp.task('default', function(){
-  //   gulp.run('serve');
-  // });
-
-  // gulp.task('build', function() {  
-  //     gulp.run('postcss' ,'js', 'html','copyIndexHtml','copyBowerJson','copy');
-
-  // });
-  
-  
-  // gulp.task('server', function() {  
-  //     browserSync.init({    
-  //         server: "./client"  
-  //     });  
-  //        gulp.watch([
-  //   'client/*.html',
-  //   'client/images/**/*',
-  //   '.tmp/fonts/**/*'
-  // ]).on('change', reload);
-
-  // // gulp.watch('app/styles/**/*.scss', ['styles']);
-  // gulp.watch('client/js/**/*.js', ['css1']);
-  // gulp.watch('client/fonts/**/*', ['fonts']);
-  // gulp.watch('client/css/**/*.css',['css1'])
-  // gulp.watch('bower.json', ['wiredep', 'fonts']);
-  // });
- 
-
-//  gulp.task('styles', () => {
-//   return gulp.src('client/styles/scss/main.scss')
-//     .pipe($.plumber())
-//     .pipe($.sourcemaps.init())
-//     .pipe($.sass.sync({
-//       outputStyle: 'expanded',
-//       precision: 10,
-//       includePaths: ['.']
-//     }).on('error', $.sass.logError))
-//     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
-//     .pipe($.sourcemaps.write())
-//     .pipe(gulp.dest('.tmp/styles/scss'))
-//     .pipe(reload({stream: true}));
-// });
 
 gulp.task('scripts', () => {
   gulp.src(['client/js/**/*.js','!client/js/plugins/*.js'])
@@ -215,15 +80,6 @@ gulp.task('fonts', () => {
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
 });
-
-// gulp.task('extras', () => {
-//   return gulp.src([
-//     'client/*.*',
-//     '!client/*.html'
-//   ], {
-//     dot: true
-//   }).pipe(gulp.dest('dist'));
-// });
 
 
 gulp.task('img', function() {
