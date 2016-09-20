@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="businessApp">
+<head>
+	<meta charset="UTF-8">
+	<title>抠抠网-商家后台</title>
+
+	<!-- build:css css/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/mocha/mocha.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+ 	
+ 	<!-- build:css  css/plugins.css -->
+ 	<!-- pluginscss:css -->
+ 	<link rel="stylesheet" href="/client/css/plugins/index.css">
+ 	<!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- build:css css/main.css-->
+    <!-- inject:css -->
+  	<link rel="stylesheet" href="/client/css/index.css">
+  	<link rel="stylesheet" href="/client/css/login.css">
+  	<link rel="stylesheet" href="/client/css/makePwd.css">
+  	<link rel="stylesheet" href="/client/css/salesIn.css">
+  	<link rel="stylesheet" href="/client/css/slide-unlock.css">
+  	<!-- endinject -->
+    <!-- endbuild -->
+   
+
+
+</head>
+<body>
+ 
+<!-- top -->
+<div id="top">
+	<div class="content">
+		<div class="con">
+			您好，<b>voiki11</b>！ [ <a href="http://shop.kouclo.com/business/logout">退出</a> ]
+		</div>
+		<div class="con text-right rcon">
+			<a href="http://www.oomall.com">抠抠网首页</a><a href="http://shop.kouclo.com/business_center/index">商家中心首页</a><a href="http://www.kouclo.com/help/">我的店铺</a><a href="http://www.kouclo.com/help/">帮助</a>
+		</div>
+	</div>
+</div>
+<!-- header -->
+<div id="header">
+	<div class="content">
+		<h1><a href="#"><img src="images/logo.png" /></a></h1>
+	</div>
+</div>
+<!-- content -->
+<div class="content clearfix con-pd" ng-controller="oomallController">
+	<!-- lcon -->
+	<div class="aside">
+		<ul>
+			<li ng-repeat="navs in navArr">
+				<h3>
+					<b></b><span ng-bind="navs.title"></span>
+				</h3>
+				<p>
+					<a href="#/{{lis.id}}" ng-repeat="lis in navs.content"><b></b><span ng-bind="lis.name"></span></a>
+				</p>
+			</li>
+		</ul>
+	</div>
+	<!-- right-con -->
+	<div class="right-con" ng-view>
+		
+	</div>
+</div>
+<!-- footer -->
+<div id="footer">
+	<div class="content text-center">
+		<p>
+			<a href="#">抠抠网</a><a href="#">商家入驻</a><a href="#">友情链接</a><a href="#">帮助中心</a><a href="#">诚征英才</a><a href="#">联系我们</a>		
+		</p>
+		<p>
+			© 2013抠抠网 KOUCLO All Rights Reserved 闽  ICP备13001618号
+
+		</p>
+	</div>
+</div>
+    <!-- build:js js/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/mocha/mocha.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+
+    <!-- build:js js/plugins.js -->
+    <!-- pluginsjs:js -->
+	<script src="/client/js/plugins/a.js"></script>
+	<script src="/client/js/plugins/jquery.slideunlock.js"></script>
+	<!-- endinject -->
+    <!-- endbuild -->
+	
+
+	<!-- build:js js/main.js -->
+    <!-- inject:js -->
+  	<script src="/client/js/a.js"></script>
+  	<script src="/client/js/animations.js"></script>
+  	<script src="/client/js/businessApp.js"></script>
+  	<script src="/client/js/controller.js"></script>
+  	<script src="/client/js/login.js"></script>
+  	<script src="/client/js/makePwd.js"></script>
+  	<!-- endinject -->
+ 	<!-- endbuild -->
+</body>
+</html>
